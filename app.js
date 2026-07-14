@@ -392,11 +392,12 @@
 
   function syncMusicToggle() {
     if (!musicToggle) return;
-    musicToggle.hidden = !musicStarted;
-    musicToggle.classList.toggle("is-muted", musicMuted);
+    musicToggle.classList.toggle("is-muted", musicMuted || !musicStarted);
     musicToggle.setAttribute(
       "aria-label",
-      musicMuted ? "Reproducir música" : "Silenciar música"
+      musicMuted || !musicStarted
+        ? "Reproducir música"
+        : "Silenciar música"
     );
   }
 
@@ -412,7 +413,9 @@
           syncMusicToggle();
         })
         .catch(() => {
-          /* El navegador puede bloquear autoplay hasta un clic */
+          musicStarted = false;
+          musicMuted = true;
+          syncMusicToggle();
         });
     } else {
       musicStarted = true;
@@ -420,6 +423,8 @@
       syncMusicToggle();
     }
   }
+
+  syncMusicToggle();
 
   if (musicToggle) {
     musicToggle.addEventListener("click", (event) => {
