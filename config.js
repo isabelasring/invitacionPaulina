@@ -63,11 +63,11 @@ window.INVITACION = {
     "/fotos/foto-06.png", /* más adulta */
   ],
 
-  /** Código de vestimenta */
+  /** Protocolo de vestuario */
   vestimenta: {
     mensaje:
-      "Con mucho respeto y cariño, te pedimos reservar estos tonos para la quinceañera.",
-    nota: "Cualquier otro color lucirá hermoso esta noche. Gracias por ayudarme a brillar en mi día especial.",
+      "Divinos y elegantes. Se reserva esta gama de colores para la quinceañera.",
+    nota: "Cualquier otro tono lucirá hermoso esta noche.",
     colores: [
       { nombre: "Lila", color: "#C9A9E8" },
       { nombre: "Lavanda", color: "#B39DDB" },

@@ -212,8 +212,8 @@ body {
 
 .book {
   position: relative;
-  width: min(92vw, 380px);
-  aspect-ratio: 3 / 4.5;
+  width: min(94vw, 400px);
+  aspect-ratio: 3 / 5.55;
   transform-style: preserve-3d;
   cursor: pointer;
   outline: none;
@@ -229,13 +229,6 @@ body {
 .book.is-open {
   cursor: default;
   transform: none;
-}
-
-/* Historia y foticos: libro más alto para que no se corte el contenido */
-.book.is-open.show-timeline:not(.show-photos),
-.book.is-open.show-photos:not(.show-dresscode) {
-  width: min(94vw, 400px);
-  aspect-ratio: 3 / 5.55;
 }
 
 .book.show-timeline .hint {
@@ -604,8 +597,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 1.6rem 1.15rem 1.5rem;
+  padding: 1.6rem 1.15rem 1.6rem;
   background:
     radial-gradient(
       ellipse 78% 70% at 50% 42%,
@@ -829,6 +823,15 @@ body {
   justify-content: center;
 }
 
+.dress-content .script-line {
+  font-size: clamp(1.45rem, 5vw, 1.85rem);
+}
+
+.dress-content .headline {
+  letter-spacing: 0.18em;
+  font-size: clamp(1.05rem, 4vw, 1.25rem);
+}
+
 .dress-intro {
   font-family: var(--font-serif);
   font-style: italic;
@@ -1012,15 +1015,13 @@ body {
 }
 
 .timeline-content {
-  padding-top: 1.1rem;
-  padding-bottom: 1.75rem;
-  justify-content: flex-start;
+  padding-top: 1.35rem;
+  padding-bottom: 1.35rem;
 }
 
 .photos-content {
-  padding-top: 1rem;
-  padding-bottom: 1.75rem;
-  justify-content: flex-start;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 .carousel {
@@ -1033,7 +1034,7 @@ body {
 
 .carousel-frame {
   width: 100%;
-  height: min(58vh, 460px);
+  height: min(48vh, 400px);
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(185, 149, 85, 0.3);
@@ -1352,26 +1353,20 @@ body {
   }
 
   .book {
-    width: min(42vw, 360px);
-    aspect-ratio: 3 / 4.5;
+    width: min(42vw, 380px);
+    aspect-ratio: 3 / 5.55;
     transition: width 0.55s ease, aspect-ratio 0.55s ease, transform 0.55s ease;
   }
 
   .book.is-open {
-    /* Mismo alto que una página; solo se ensancha el díptico */
-    width: min(84vw, 720px);
-    aspect-ratio: 6 / 4.5;
+    /* Mismo alto en todas las páginas; solo se ensancha el díptico */
+    width: min(88vw, 760px);
+    aspect-ratio: 6 / 5.55;
     transform: none;
   }
 
-  .book.is-open.show-timeline:not(.show-photos),
-  .book.is-open.show-photos:not(.show-dresscode) {
-    width: min(88vw, 760px);
-    aspect-ratio: 6 / 5.4;
-  }
-
   .carousel-frame {
-    height: min(52vh, 420px);
+    height: min(46vh, 380px);
   }
 
   .book.is-open .book-spine {
