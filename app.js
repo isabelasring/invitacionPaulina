@@ -1,7 +1,6 @@
 (function () {
   const book = document.getElementById("book");
   const bookShell = document.getElementById("bookShell");
-  const hint = document.getElementById("hint");
   const guestName = document.getElementById("guestName");
   const eventDate = document.getElementById("eventDate");
   const eventTime = document.getElementById("eventTime");
@@ -31,15 +30,6 @@
     "notes",
     "confirm",
   ];
-  const HINTS = {
-    mensaje: "Invitación para que me acompañes",
-    details: "Usa las flechas para pasar de página",
-    timeline: "La historia de Paulina",
-    photos: "Desliza sus recuerdos",
-    dress: "Código de vestimenta",
-    notes: "Puntualidad y lluvia de sobres",
-    confirm: "Confirma tu asistencia",
-  };
 
   function isMobileLayout() {
     return window.matchMedia("(max-width: 719px)").matches;
@@ -82,9 +72,8 @@
   if (cfg.dia) eventDate.textContent = cfg.dia;
   if (cfg.hora) eventTime.textContent = cfg.hora;
   if (cfg.lugarLinea1) {
-    eventPlace.innerHTML = cfg.lugarLinea2
-      ? `${cfg.lugarLinea1}<br />${cfg.lugarLinea2}`
-      : cfg.lugarLinea1;
+    const lines = [cfg.lugarLinea1, cfg.lugarLinea2, cfg.salon].filter(Boolean);
+    eventPlace.innerHTML = lines.join("<br />");
   }
 
   if (cfg.rsvp) {
@@ -318,8 +307,6 @@
     currentPageId = pages[pageIndex];
     syncBookClasses();
     syncArrows();
-    hint.textContent = HINTS[pages[pageIndex]] || "";
-    hint.classList.remove("is-hidden");
 
     if (pages[pageIndex] === "photos") {
       startCarouselAutoplay();
@@ -352,8 +339,6 @@
       "show-confirm"
     );
     syncArrows();
-    hint.textContent = "Toca la portada para abrir tu invitación";
-    hint.classList.remove("is-hidden");
     book.setAttribute("aria-label", "Abrir invitación");
     book.setAttribute("tabindex", "0");
   }

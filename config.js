@@ -5,6 +5,7 @@ window.INVITACION = {
   hora: "7:00 p.m.",
   lugarLinea1: "Crr 38 n 52 - 05",
   lugarLinea2: "Boston",
+  salon: "Playa Real",
   /** Fecha del evento en zona America/Bogota */
   eventoISO: "2026-08-08T19:00:00-05:00",
   /** Link de confirmación por WhatsApp */

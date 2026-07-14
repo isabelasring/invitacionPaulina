@@ -103,33 +103,42 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 0.35rem;
 }
 
 .book-arrow {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid rgba(185, 149, 85, 0.45);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.88);
   color: var(--plum);
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(70, 40, 100, 0.12);
+  box-shadow: 0 8px 20px rgba(70, 40, 100, 0.14);
   transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-  z-index: 5;
+  z-index: 12;
   padding: 0;
 }
 
+.book-arrow-prev {
+  left: 10px;
+}
+
+.book-arrow-next {
+  right: 10px;
+}
+
 .book-arrow svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .book-arrow:hover:not(:disabled) {
-  transform: scale(1.06);
+  transform: translateY(-50%) scale(1.06);
   background: #fff;
 }
 
@@ -1366,7 +1375,7 @@ body {
   }
 
   .book-shell.has-arrows {
-    padding-inline: 0.5rem;
+    padding-inline: 0;
   }
 }
 
@@ -1388,12 +1397,16 @@ body {
   }
 
   .book-arrow {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 
-  .book-shell {
-    gap: 0.15rem;
+  .book-arrow-prev {
+    left: 8px;
+  }
+
+  .book-arrow-next {
+    right: 8px;
   }
 }
 
