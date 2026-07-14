@@ -112,8 +112,8 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid rgba(185, 149, 85, 0.4);
   background: rgba(255, 255, 255, 0.88);
@@ -136,8 +136,8 @@ body {
 }
 
 .book-arrow svg {
-  width: 13px;
-  height: 13px;
+  width: 18px;
+  height: 18px;
 }
 
 .book-arrow:hover:not(:disabled) {
@@ -290,7 +290,7 @@ body {
 
 .left-invite-line {
   font-family: var(--font-script);
-  font-size: clamp(1.45rem, 4.2vw, 1.85rem);
+  font-size: clamp(1.7rem, 4.8vw, 2.15rem);
   line-height: 1.25;
   color: var(--plum);
   margin-bottom: 0.2rem;
@@ -355,7 +355,7 @@ body {
 .left-quote {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(0.88rem, 2.6vw, 1.02rem);
+  font-size: clamp(1.06rem, 3vw, 1.2rem);
   line-height: 1.65;
   color: var(--ink);
 }
@@ -473,7 +473,7 @@ body {
   box-shadow: -4px 0 18px rgba(60, 30, 90, 0.12);
 }
 
-/* —— Página vestimenta —— */
+/* —— Página protocolo de vestuario —— */
 .page-dress {
   z-index: 3;
   background: #faf7ff;
@@ -611,7 +611,7 @@ body {
 
 .script-line {
   font-family: var(--font-script);
-  font-size: clamp(1.35rem, 4.5vw, 1.65rem);
+  font-size: clamp(1.65rem, 5.4vw, 2.05rem);
   color: var(--lilac-deep);
   margin-bottom: 0.15rem;
   opacity: 0;
@@ -621,8 +621,8 @@ body {
 .headline {
   font-family: var(--font-serif);
   font-weight: 500;
-  font-size: clamp(1.2rem, 4.5vw, 1.45rem);
-  letter-spacing: 0.28em;
+  font-size: clamp(1.42rem, 5vw, 1.72rem);
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--plum);
   margin-bottom: 1rem;
@@ -657,7 +657,7 @@ body {
 
 .countdown-label {
   font-family: var(--font-serif);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--lilac-deep);
@@ -680,7 +680,7 @@ body {
 .countdown-num {
   display: block;
   font-family: var(--font-serif);
-  font-size: clamp(1.15rem, 4vw, 1.35rem);
+  font-size: clamp(1.4rem, 4.5vw, 1.65rem);
   font-weight: 600;
   color: var(--plum);
   line-height: 1.1;
@@ -720,7 +720,7 @@ body {
 .info-label {
   display: block;
   font-family: var(--font-serif);
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -731,7 +731,7 @@ body {
 .info-value {
   display: block;
   font-family: var(--font-script);
-  font-size: clamp(1.35rem, 5vw, 1.65rem);
+  font-size: clamp(1.65rem, 5.5vw, 2rem);
   line-height: 1.15;
   color: var(--rose-ink);
 }
@@ -824,18 +824,20 @@ body {
 }
 
 .dress-content .script-line {
-  font-size: clamp(1.45rem, 5vw, 1.85rem);
+  font-size: clamp(1.6rem, 5.2vw, 2rem);
 }
 
 .dress-content .headline {
-  letter-spacing: 0.18em;
-  font-size: clamp(1.05rem, 4vw, 1.25rem);
+  letter-spacing: 0.1em;
+  font-size: clamp(1.05rem, 3.6vw, 1.22rem);
+  line-height: 1.35;
+  max-width: 16ch;
 }
 
 .dress-intro {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(0.98rem, 3.2vw, 1.12rem);
+  font-size: clamp(1.18rem, 3.6vw, 1.32rem);
   line-height: 1.65;
   color: var(--ink);
   max-width: 280px;
@@ -883,7 +885,7 @@ body {
 
 .swatch-name {
   font-family: var(--font-serif);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--plum);
@@ -891,7 +893,7 @@ body {
 
 .dress-note {
   font-family: var(--font-script);
-  font-size: clamp(1.2rem, 4.2vw, 1.45rem);
+  font-size: clamp(1.35rem, 4.5vw, 1.6rem);
   line-height: 1.35;
   color: var(--lilac-deep);
   max-width: 260px;
@@ -942,7 +944,7 @@ body {
 
 .note-title {
   font-family: var(--font-serif);
-  font-size: 0.78rem;
+  font-size: 0.86rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -953,7 +955,7 @@ body {
 .note-text {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(0.95rem, 3vw, 1.08rem);
+  font-size: clamp(1.14rem, 3.4vw, 1.28rem);
   line-height: 1.55;
   color: var(--ink);
 }
@@ -979,14 +981,14 @@ body {
 
 .closing-script {
   font-family: var(--font-script);
-  font-size: clamp(1.9rem, 7vw, 2.4rem);
+  font-size: clamp(2.1rem, 7.5vw, 2.65rem);
   color: var(--plum);
   line-height: 1;
 }
 
 .closing-confirm {
   font-family: var(--font-serif);
-  font-size: 0.92rem;
+  font-size: 1.02rem;
   color: var(--ink);
   letter-spacing: 0.02em;
   margin-bottom: 0.35rem;
@@ -1001,7 +1003,7 @@ body {
   border-radius: 999px;
   text-decoration: none;
   font-family: var(--font-script);
-  font-size: 1.55rem;
+  font-size: 1.7rem;
   line-height: 1;
   color: #fff;
   background: linear-gradient(135deg, var(--lilac), var(--lilac-deep) 55%, var(--plum));
@@ -1082,6 +1084,11 @@ body {
 
 .carousel-btn:hover {
   background: #fff;
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 .carousel-dots {
@@ -1174,7 +1181,7 @@ body {
 .timeline-year {
   display: block;
   font-family: var(--font-serif);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1185,7 +1192,7 @@ body {
 .timeline-title {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(1.25rem, 4.6vw, 1.5rem);
+  font-size: clamp(1.55rem, 5.4vw, 1.9rem);
   line-height: 1.1;
   color: var(--plum);
   margin-bottom: 0.15rem;
@@ -1198,7 +1205,7 @@ body {
 .timeline-text {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.88rem;
+  font-size: 1.08rem;
   line-height: 1.4;
   color: var(--ink);
 }
@@ -1421,13 +1428,13 @@ body {
   }
 
   .book-arrow {
-    width: 26px;
-    height: 26px;
+    width: 36px;
+    height: 36px;
   }
 
   .book-arrow svg {
-    width: 12px;
-    height: 12px;
+    width: 17px;
+    height: 17px;
   }
 
   .book-arrow-prev {

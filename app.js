@@ -185,14 +185,30 @@
     }
   }
 
-  const photos = Array.isArray(cfg.fotos) ? cfg.fotos : [];
+  const photos = Array.from(
+    new Set((Array.isArray(cfg.fotos) ? cfg.fotos : []).filter(Boolean))
+  );
   let photoIndex = 0;
   let carouselTimer = null;
   const CAROUSEL_MS = 3200;
 
+  function syncCarouselControls() {
+    if (carouselPrev) {
+      carouselPrev.disabled = photoIndex <= 0;
+    }
+    if (carouselNext) {
+      carouselNext.disabled = photoIndex >= photos.length - 1;
+    }
+  }
+
   function showPhoto(index, { resetTimer = true } = {}) {
     if (!photos.length || !carouselImage) return;
-    photoIndex = ((index % photos.length) + photos.length) % photos.length;
+    const nextIndex = Math.max(0, Math.min(photos.length - 1, index));
+    if (nextIndex === photoIndex) {
+      syncCarouselControls();
+      return;
+    }
+    photoIndex = nextIndex;
     carouselImage.classList.add("is-fading");
     setTimeout(() => {
       carouselImage.src = photos[photoIndex];
@@ -204,6 +220,8 @@
         dot.classList.toggle("is-active", i === photoIndex);
       });
     }
+
+    syncCarouselControls();
 
     if (resetTimer && getPages()[pageIndex] === "photos" && opened) {
       startCarouselAutoplay();
@@ -219,8 +237,13 @@
 
   function startCarouselAutoplay() {
     stopCarouselAutoplay();
-    if (!photos.length) return;
+    if (!photos.length || photoIndex >= photos.length - 1) return;
     carouselTimer = setInterval(() => {
+      if (photoIndex >= photos.length - 1) {
+        stopCarouselAutoplay();
+        syncCarouselControls();
+        return;
+      }
       showPhoto(photoIndex + 1, { resetTimer: false });
     }, CAROUSEL_MS);
   }
@@ -235,6 +258,8 @@
       .join("");
 
     if (photos[0]) carouselImage.src = photos[0];
+    photoIndex = 0;
+    syncCarouselControls();
 
     carouselDots.addEventListener("click", (event) => {
       const dot = event.target.closest(".carousel-dot");
@@ -313,6 +338,7 @@
     });
 
     if (pages[pageIndex] === "photos") {
+      showPhoto(0, { resetTimer: false });
       startCarouselAutoplay();
     } else {
       stopCarouselAutoplay();
@@ -483,8 +509,11 @@
       (event) => {
         const delta = event.changedTouches[0].screenX - touchStartX;
         if (Math.abs(delta) < 40) return;
-        if (delta < 0) showPhoto(photoIndex + 1);
-        else showPhoto(photoIndex - 1);
+        if (delta < 0) {
+          if (photoIndex < photos.length - 1) showPhoto(photoIndex + 1);
+        } else if (photoIndex > 0) {
+          showPhoto(photoIndex - 1);
+        }
       },
       { passive: true }
     );
