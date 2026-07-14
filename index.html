@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis 15 años · Paulina</title>
+    <meta
+      name="description"
+      content="Te invito a celebrar mis quince años. Abre tu invitación especial."
+    />
+    <meta property="og:title" content="Mis 15 años · Paulina" />
+    <meta
+      property="og:description"
+      content="Te invito a celebrar mis quince años. Abre tu invitación especial."
+    />
+    <meta property="og:image" content="/portada.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <audio id="bgMusic" src="/musica.mp3" loop preload="auto"></audio>
+
+    <button type="button" class="music-toggle" id="musicToggle" aria-label="Silenciar música" hidden>
+      <span class="music-icon music-on" aria-hidden="true">♪</span>
+      <span class="music-icon music-off" aria-hidden="true">♪̸</span>
+    </button>
+
+    <div class="ambient" aria-hidden="true">
+      <span class="glow glow-a"></span>
+      <span class="glow glow-b"></span>
+      <span class="petal petal-1"></span>
+      <span class="petal petal-2"></span>
+      <span class="petal petal-3"></span>
+    </div>
+
+    <main class="stage">
+      <p class="hint" id="hint">Toca la portada para abrir tu invitación</p>
+
+      <div class="book-shell" id="bookShell">
+        <button
+          type="button"
+          class="book-arrow book-arrow-prev"
+          id="btnPrev"
+          aria-label="Página anterior"
+          hidden
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 5L8 12l7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="book" id="book" tabindex="0" aria-label="Abrir invitación">
+          <div class="book-spine" aria-hidden="true"></div>
+
+          <!-- Página izquierda: mensaje (escritorio) -->
+          <div class="page page-left" aria-hidden="true">
+            <div class="left-panel">
+              <p class="left-invite-line">
+                Invitación para que me acompañes en este día tan especial
+              </p>
+              <div class="invite-logo" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none">
+                  <circle cx="60" cy="60" r="52" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+                  <circle cx="60" cy="60" r="44" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+                  <path d="M28 48h64v36H28z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M28 48l32 22 32-22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="60" y="78" text-anchor="middle" fill="currentColor" font-size="18" font-family="Georgia, serif" letter-spacing="2">15</text>
+                </svg>
+                <span>Paulina</span>
+              </div>
+              <div class="left-divider" aria-hidden="true"><span></span><i>◆</i><span></span></div>
+              <p class="left-quote">
+                Los momentos más felices de la vida se vuelven mágicos cuando los
+                compartimos con nuestra familia y amigos más queridos. Tú eres
+                parte de esa magia, por eso quiero que me acompañes a celebrar
+                mis 15 años y hacer de este día un recuerdo inolvidable. Con la
+                bendición de Dios y mi familia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Mensaje: en móvil se muestra después de la portada -->
+          <div class="page page-mensaje" id="mensajePage">
+            <div class="mensaje-inner">
+              <p class="left-invite-line">
+                Invitación para que me acompañes en este día tan especial
+              </p>
+              <div class="invite-logo" aria-hidden="true">
+                <svg viewBox="0 0 120 120" fill="none">
+                  <circle cx="60" cy="60" r="52" stroke="currentColor" stroke-width="1.2" opacity="0.45"/>
+                  <circle cx="60" cy="60" r="44" stroke="currentColor" stroke-width="0.8" opacity="0.35"/>
+                  <path d="M28 48h64v36H28z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                  <path d="M28 48l32 22 32-22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <text x="60" y="78" text-anchor="middle" fill="currentColor" font-size="18" font-family="Georgia, serif" letter-spacing="2">15</text>
+                </svg>
+                <span>Paulina</span>
+              </div>
+              <div class="left-divider" aria-hidden="true"><span></span><i>◆</i><span></span></div>
+              <p class="left-quote">
+                Los momentos más felices de la vida se vuelven mágicos cuando los
+                compartimos con nuestra familia y amigos más queridos. Tú eres
+                parte de esa magia, por eso quiero que me acompañes a celebrar
+                mis 15 años y hacer de este día un recuerdo inolvidable. Con la
+                bendición de Dios y mi familia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Página 6: confirmar asistencia -->
+          <div class="page page-confirm" id="confirmPage">
+            <img
+              class="inner-art"
+              src="/pagina-detalle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="inner-scroll">
+              <div class="inner-content confirm-content">
+                <h2 class="headline">Confirmación</h2>
+                <div class="note-closing" id="closingBlock">
+                  <p class="closing-script" id="esperamosText">Te esperamos</p>
+                  <p class="closing-confirm">Confirma tu asistencia por WhatsApp</p>
+                  <a
+                    class="wa-btn"
+                    id="whatsappBtn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Aquí
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Página 5: puntualidad y lluvia de sobres -->
+          <div class="page page-notes" id="notesPage">
+            <img
+              class="inner-art"
+              src="/pagina-detalle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="inner-scroll">
+              <div class="inner-content notes-content">
+                <p class="script-line">Con respeto</p>
+                <h2 class="headline">Recomendaciones</h2>
+
+                <div class="note-block">
+                  <span class="note-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.4"/>
+                      <path d="M12 7.5V12l3.2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <h3 class="note-title">Puntualidad</h3>
+                  <p class="note-text" id="punctualidadText">
+                    Con mucho cariño te pedimos llegar puntual. Tu presencia a tiempo
+                    hará aún más especial el comienzo de esta noche.
+                  </p>
+                </div>
+
+                <div class="note-block">
+                  <span class="note-icon note-icon-envelope" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none">
+                      <rect
+                        x="6"
+                        y="12"
+                        width="36"
+                        height="26"
+                        rx="3"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      />
+                      <path
+                        d="M7 14.5L24 27 41 14.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12 33h10"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        opacity="0.45"
+                      />
+                    </svg>
+                  </span>
+                  <h3 class="note-title">Lluvia de sobres</h3>
+                  <p class="note-text" id="sobresText">
+                    Tu compañía es el mejor regalo. Si deseas obsequiarme algo,
+                    será con mucho cariño en forma de lluvia de sobres.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Página 4: código de vestimenta -->
+          <div class="page page-dress" id="dressPage">
+            <img
+              class="inner-art"
+              src="/pagina-detalle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="inner-scroll">
+              <div class="inner-content dress-content">
+                <p class="script-line">Con cariño</p>
+                <h2 class="headline">Vestimenta</h2>
+                <p class="dress-intro" id="dressMessage">
+                  Con mucho respeto y cariño, te pedimos reservar estos tonos para
+                  la quinceañera.
+                </p>
+                <ul class="color-swatches" id="colorSwatches" aria-label="Colores reservados"></ul>
+                <p class="dress-note" id="dressNote">
+                  Cualquier otro color lucirá hermoso esta noche. Gracias por ayudarme
+                  a brillar en mi día especial.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Página 3: recuerdos / carrusel -->
+          <div class="page page-photos" id="photosPage">
+            <img
+              class="inner-art"
+              src="/pagina-detalle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="inner-scroll">
+              <div class="inner-content photos-content">
+                <p class="script-line">Recuerdos</p>
+                <h2 class="headline">Mis foticos</h2>
+                <div class="carousel" id="carousel">
+                  <div class="carousel-frame">
+                    <img id="carouselImage" class="carousel-image" src="/fotos/foto-01.png" alt="Recuerdo de Paulina" />
+                  </div>
+                  <div class="carousel-controls">
+                    <button type="button" class="carousel-btn" id="carouselPrev" aria-label="Foto anterior">
+                      ‹
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button type="button" class="carousel-btn" id="carouselNext" aria-label="Foto siguiente">
+                      ›
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Página 2: línea de tiempo -->
+          <div class="page page-timeline" id="timelinePage">
+            <img
+              class="inner-art"
+              src="/pagina-detalle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="inner-scroll">
+              <div class="inner-content timeline-content">
+                <p class="script-line">Mi historia</p>
+                <h2 class="headline">Hasta hoy</h2>
+                <ol class="timeline" id="timeline"></ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portada -->
+          <div class="page page-cover" id="cover">
+            <img
+              class="cover-art"
+              src="/portada.png"
+              alt="Portada de la invitación de Paulina"
+            />
+            <div class="cover-veil"></div>
+            <div class="cover-copy">
+              <h1 class="cover-title">Mis 15</h1>
+              <p class="cover-name">Paulina</p>
+              <span class="cover-cta">Abrir</span>
+            </div>
+          </div>
+
+          <!-- Página 2: fecha, hora, lugar + mapa -->
+          <div class="page page-inner" id="inner">
+            <img
+              class="inner-art"
+              src="/pagina-detalle.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <div class="inner-scroll">
+              <div class="inner-content">
+                <p class="script-line">Te espero</p>
+                <h2 class="headline">Detalles</h2>
+
+                <ul class="info-list">
+                  <li class="info-item">
+                    <span class="info-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <rect x="3.5" y="5" width="17" height="15" rx="2" stroke="currentColor" stroke-width="1.4"/>
+                        <path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                        <path d="M12 13.2l1.1 2.2 2.4.3-1.8 1.7.5 2.4L12 18.6l-2.2 1.2.5-2.4-1.8-1.7 2.4-.3L12 13.2z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <span class="info-label">Día</span>
+                      <span class="info-value" id="eventDate">8 de agosto</span>
+                    </div>
+                  </li>
+                  <li class="info-item">
+                    <span class="info-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.4"/>
+                        <path d="M12 7.5V12l3.2 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <span class="info-label">Hora</span>
+                      <span class="info-value" id="eventTime">7:00 p.m.</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="countdown" id="countdown" aria-live="polite">
+                  <p class="countdown-label">Faltan</p>
+                  <div class="countdown-grid">
+                    <div class="countdown-item">
+                      <span class="countdown-num" id="cdDays">0</span>
+                      <span class="countdown-unit">días</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-num" id="cdHours">0</span>
+                      <span class="countdown-unit">hrs</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-num" id="cdMins">0</span>
+                      <span class="countdown-unit">min</span>
+                    </div>
+                    <div class="countdown-item">
+                      <span class="countdown-num" id="cdSecs">0</span>
+                      <span class="countdown-unit">seg</span>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="info-list info-list-place">
+                  <li class="info-item">
+                    <span class="info-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 21s6.5-5.2 6.5-11a6.5 6.5 0 10-13 0c0 5.8 6.5 11 6.5 11z" stroke="currentColor" stroke-width="1.4"/>
+                        <circle cx="12" cy="10" r="2.2" stroke="currentColor" stroke-width="1.4"/>
+                      </svg>
+                    </span>
+                    <div>
+                      <span class="info-label">Lugar</span>
+                      <span class="info-value" id="eventPlace">Crr 38 n 52 - 05<br />Boston</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <a class="rsvp" id="rsvpLink" href="#" hidden>Confirmar asistencia</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="book-arrow book-arrow-next"
+          id="btnNext"
+          aria-label="Página siguiente"
+          hidden
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <script src="/config.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
