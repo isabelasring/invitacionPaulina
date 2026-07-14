@@ -308,6 +308,10 @@
     syncBookClasses();
     syncArrows();
 
+    book.querySelectorAll(".inner-scroll").forEach((el) => {
+      el.scrollTop = 0;
+    });
+
     if (pages[pageIndex] === "photos") {
       startCarouselAutoplay();
     } else {

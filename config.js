@@ -45,7 +45,8 @@ window.INVITACION = {
     {
       anio: "Hoy",
       titulo: "Mis 15 años",
-      texto: "Y hoy celebro conmigo a quienes han caminado esta historia a mi lado.",
+      texto:
+        "Hoy celebro mis quince años rodeada del amor de mi familia y de mis amigos más queridos.",
       hoy: true,
     },
   ],

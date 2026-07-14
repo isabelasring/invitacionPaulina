@@ -36,7 +36,10 @@ body {
   overflow-x: hidden;
   display: grid;
   place-items: center;
-  padding: 1.5rem 1rem 2.5rem;
+  align-content: start;
+  justify-items: center;
+  padding: 0.65rem 0.75rem 0.5rem;
+  min-height: 100dvh;
 }
 
 .ambient {
@@ -93,7 +96,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.35rem;
   perspective: 1800px;
 }
 
@@ -109,32 +112,32 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(185, 149, 85, 0.45);
+  border: 1px solid rgba(185, 149, 85, 0.4);
   background: rgba(255, 255, 255, 0.88);
   color: var(--plum);
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(70, 40, 100, 0.14);
+  box-shadow: 0 4px 12px rgba(70, 40, 100, 0.12);
   transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
   z-index: 12;
   padding: 0;
 }
 
 .book-arrow-prev {
-  left: 10px;
+  left: 8px;
 }
 
 .book-arrow-next {
-  right: 10px;
+  right: 8px;
 }
 
 .book-arrow svg {
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
 }
 
 .book-arrow:hover:not(:disabled) {
@@ -214,8 +217,8 @@ body {
   transform-style: preserve-3d;
   cursor: pointer;
   outline: none;
-  filter: drop-shadow(0 28px 40px var(--shadow));
-  transition: transform 0.5s ease;
+  filter: drop-shadow(0 16px 28px var(--shadow));
+  transition: transform 0.5s ease, width 0.45s ease, aspect-ratio 0.45s ease;
 }
 
 .book:focus-visible {
@@ -226,6 +229,13 @@ body {
 .book.is-open {
   cursor: default;
   transform: none;
+}
+
+/* Historia y foticos: libro más alto para que no se corte el contenido */
+.book.is-open.show-timeline:not(.show-photos),
+.book.is-open.show-photos:not(.show-dresscode) {
+  width: min(94vw, 400px);
+  aspect-ratio: 3 / 5.55;
 }
 
 .book.show-timeline .hint {
@@ -1002,36 +1012,41 @@ body {
 }
 
 .timeline-content {
-  padding-top: 1.35rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1.75rem;
+  justify-content: flex-start;
 }
 
 .photos-content {
-  padding-top: 1.2rem;
+  padding-top: 1rem;
+  padding-bottom: 1.75rem;
   justify-content: flex-start;
 }
 
 .carousel {
   width: 100%;
-  max-width: 280px;
-  margin: 0.2rem auto 0;
+  max-width: 300px;
+  margin: 0.15rem auto 0;
   opacity: 0;
   transform: translateY(10px);
 }
 
 .carousel-frame {
   width: 100%;
-  aspect-ratio: 3 / 5;
+  height: min(58vh, 460px);
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(185, 149, 85, 0.3);
   box-shadow: 0 12px 26px rgba(92, 61, 120, 0.16);
   background: #efe8f5;
+  display: grid;
+  place-items: center;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
   transition: opacity 0.18s ease;
@@ -1096,8 +1111,8 @@ body {
   width: 100%;
   max-width: 300px;
   position: relative;
-  padding: 0.35rem 0 0.5rem 0.35rem;
-  margin: 0 auto 0.2rem;
+  padding: 0.25rem 0 1rem 0.35rem;
+  margin: 0 auto;
   text-align: left;
 }
 
@@ -1106,7 +1121,7 @@ body {
   position: absolute;
   left: 11px;
   top: 8px;
-  bottom: 18px;
+  bottom: 28px;
   width: 1px;
   background: linear-gradient(
     180deg,
@@ -1120,10 +1135,14 @@ body {
   position: relative;
   display: grid;
   grid-template-columns: 24px 1fr;
-  gap: 0.7rem;
-  margin-bottom: 1rem;
+  gap: 0.55rem;
+  margin-bottom: 0.75rem;
   opacity: 0;
   transform: translateY(12px);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0.35rem;
 }
 
 .book.show-timeline .timeline-item {
@@ -1165,10 +1184,10 @@ body {
 .timeline-title {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(1.35rem, 5vw, 1.6rem);
+  font-size: clamp(1.25rem, 4.6vw, 1.5rem);
   line-height: 1.1;
   color: var(--plum);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .timeline-item.is-today .timeline-title {
@@ -1178,8 +1197,8 @@ body {
 .timeline-text {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.4;
   color: var(--ink);
 }
 
@@ -1345,6 +1364,16 @@ body {
     transform: none;
   }
 
+  .book.is-open.show-timeline:not(.show-photos),
+  .book.is-open.show-photos:not(.show-dresscode) {
+    width: min(88vw, 760px);
+    aspect-ratio: 6 / 5.4;
+  }
+
+  .carousel-frame {
+    height: min(52vh, 420px);
+  }
+
   .book.is-open .book-spine {
     left: 50%;
     margin-left: -7px;
@@ -1397,16 +1426,21 @@ body {
   }
 
   .book-arrow {
-    width: 36px;
-    height: 36px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .book-arrow svg {
+    width: 12px;
+    height: 12px;
   }
 
   .book-arrow-prev {
-    left: 8px;
+    left: 6px;
   }
 
   .book-arrow-next {
-    right: 8px;
+    right: 6px;
   }
 }
 
